@@ -1,0 +1,200 @@
+<html>
+<head>
+    <script type="text/javascript">
+    function click_me()
+    {
+        n1=document.getElementsByName("aname")[0].value;
+        p1=document.getElementsByName("apass")[0].value;
+        d1=document.getElementsByName("adate")[0].value;
+        e1=document.getElementsByName("amail")[0].value;
+        g1=document.getElementsByName("asex")[0].checked;
+        g2=document.getElementsByName("asex")[1].checked;
+        br1=document.getElementsByName("abranch")[0].value;
+        l1=document.getElementsByName("amal")[0].checked;
+        l2=document.getElementsByName("aeng")[0].checked;
+        alert("n1="+n1+"p1="+p1+"d1="+d1+"e1="+e1+"g1="+g1+"g2="+g2+"br1="+br1+"l1="+l1+"l2="+l2);
+        n=document.getElementById("a1");
+        p=document.getElementById("a2");
+        d=document.getElementById("a3");
+        e=document.getElementById("a4");
+        g=document.getElementById("a5");
+        br=document.getElementById("a6");
+        l=document.getElementById("a7");
+        alert("n="+n+"p="+p+"e="+e+"g="+g+"br="+br+"l="+l);
+        
+        var sp1=e1.split("@");
+        x=sp1.length;
+        var sp2=sp1[x-1].split(".");
+        y=sp2.length;
+        var alpha=/^[A-Za-z0-9]+$/;
+        
+        //username
+        if(n1=="")
+        {
+            n.innerHTML="enter your name";
+           
+        }
+        else
+            n.innerHTML="";
+        //password    
+        if(p1=="")
+        {
+            p.innerHTML="enter your password";
+            
+        } 
+        else if(p1.length<6)
+        {
+           p.innerHTML="atleast 6 characters";
+           alert("pass");
+        }   
+        else
+           p.innerHTML=""; 
+       
+       //dob
+       if(d1=="")
+       {
+           d.innerHTML="enter your dob";
+           
+       }
+       else if(d1<15)
+       {
+          d.innerHTML="morethan 15";
+           
+       }    
+       else
+           d.innerHTML="";
+          
+       //email    
+      /* if(e1=="")
+       {
+           e.innerHTML="enter your mailid";
+       }
+       else
+           e.innerHTML="";*/
+       if(sp1.length==1 || sp2.length==1 || sp1[x-1].length<=2 || sp2[y-1].length<=2)
+       {
+           e.innerHTML="inval emailid";
+           
+       } 
+      
+       for(i=0,j=0;i<(sp1.length)-1 || j<(sp2.length)-1; i++,j++)
+       {
+           if(!alpha.test(sp1[i]) || (!alpha.test(sp2[j])))
+           {
+              e.innerHTML="invalid emailid";
+              
+           }
+           
+       } 
+         
+       //gender    
+       if(g1=="" && g2=="") 
+       {
+           g.innerHTML="select your gender";
+              
+       } 
+       else
+           g.innerHTML="";
+       //branch    
+       if(br1=="")
+       {
+           br.innerHTML="choose your branch";
+          
+       } 
+       else
+           br.innerHTML="";
+           
+       //language    
+       if(l1==false && l2==false)
+       {
+           l.innerHTML="select your language";
+          
+       } 
+       else
+           l.innerHTML="";                            
+        
+    }
+    </script>
+    
+    <style>
+        .b1
+        {
+            color:#ff0000;
+        }
+        .b2
+        {
+            color:#ff0000;
+        }
+        .b3
+        {
+            color:#ff0000;
+        }
+         .b4
+        {
+            color:#ff0000;
+        }
+        .b5
+        {
+            color:#ff0000;
+        }
+        .b6
+        {
+            color:#ff0000;
+        }
+         .b7
+        {
+            color:#ff0000;
+        }
+        
+    </style>
+</head>
+<body>
+<form name="registeration" method="" action="">
+<center>
+<table  align="center" bgcolor="blue" height="50%" width="50%">
+    <tr>
+        <td colspan="3"  bgcolor="red" align="center" ><h1>REGISTRATION FORM</h1></td>
+    </tr>
+    <tr>
+        <td><label>username</label></td>
+        <td><input type="text" name="aname" value=""></td>
+        <td><label id=a1 class="b1"></label></td>
+    </tr>
+    <tr>
+       <td><label>password</label></td>
+       <td><input type="text" name="apass"></td>
+       <td><label id=a2 class="b2"></label></td>
+    </tr>           
+    <tr>
+       <td><label>DOB</label></td>
+       <td><input type="text" name="adate"></td>
+       <td><label id=a3 class="b3"></label></td>
+    </tr>
+    <tr>
+       <td><label>email</label></td>
+       <td><input type="text" name="amail"></td>
+       <td><label id=a4 class="b4"></label></td>
+    </tr> 
+    <tr>
+       <td><label>gender</label></td>
+       <td><input type="radio" name="asex" value="male">male<input type="radio" name="asex" value="female">female</td>
+       <td><label id=a5 class="b5"></label></td>
+    </tr>
+    <tr>
+       <td><label>branch</label></td>
+       <td><select name="abranch" ><option value="">choose branch</option><option>calicut<option>cochin<option>bangalore</select></td>
+       <td><label id=a6 class="b6"></label></td>
+    </tr> 
+    <tr>
+       <td><label>language</label></td>
+       <td><input type="checkbox" name="amal" value="malayalam">malayalam<input type="checkbox" name="aeng" value="english">English </td>
+       <td><label id=a7 class="b7"></label></td>
+    </tr> 
+    <tr>
+        <td colspan="3" align="center"><input type="button" value="submit" onclick="click_me()"></td>
+    </tr>    
+    </table>
+    </center>
+    </form>
+        </body>
+            </html>                                                        
